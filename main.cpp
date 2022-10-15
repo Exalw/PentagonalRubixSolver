@@ -3,7 +3,9 @@
 
 /**
  * Rubix Cube Solver for pentagonal Sides
- * First Color: Above, third is clockwise from second (sides), last is down.
+ * First Color is the one on top, second one is facing you,
+ * third is clockwise from second, seventh is left-down from second,
+ * eight is clockwise from seventh, last is down.
  * Sides are clockwise starting from first one in above left corner
  * @return
  */
