@@ -93,7 +93,7 @@ void RubixCube::moveEdgeCw(int data, int x0, int target, int y0){
 }
 
 void RubixCube::turnSideC(int side){
-	cout << "Turning Side: " << side << endl;
+	cout << "Turning Side: " << side << " - clockwise" << endl;
 	RubixSide rS = pSides[side];
 	uint16_t* tmpCs = new uint16_t[5];
 	uint16_t* tmpMs = new uint16_t[5];
@@ -108,7 +108,8 @@ void RubixCube::turnSideC(int side){
 	updateOtherSidesC(side);
 }
 
-void RubixCube::turnSide(int side){
+void RubixCube::turnSideCC(int side){
+	cout << "Turning Side: " << side << " - counterclockwise" << endl;
 	RubixSide rS = pSides[side];
 	uint16_t* tmpCs = new uint16_t[5];
 	uint16_t* tmpMs = new uint16_t[5];

@@ -26,7 +26,7 @@ public:
 	void turnEdgesCw(int *s, int *x);
 	void moveEdgeCw(int data, int x0, int target, int x1);
 	void turnSideC(int side);
-	void turnSide(int side);
+	void turnSideCC(int side);
 
 	void printCube();
 };
