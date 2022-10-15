@@ -129,7 +129,3 @@ void RubixCube::printCube() {
 	}
 	cout << endl;
 }
-
-void RubixCube::solve() {
-
-}

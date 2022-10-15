@@ -29,7 +29,6 @@ public:
 	void turnSide(int side);
 
 	void printCube();
-	void solve();
 };
 
 
