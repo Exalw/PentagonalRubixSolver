@@ -31,9 +31,9 @@ int main() {
 	}
 	c->init(alNbrs);
 	c->printCube();
-	c->turnSideC(12);
+	c->turnSideC(1);
 	c->printCube();
-	c->turnSideCC(12);
+	c->turnSideCC(1);
 	c->printCube();
 	return 0;
 }
