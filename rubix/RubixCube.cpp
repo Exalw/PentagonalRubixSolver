@@ -42,7 +42,7 @@ void RubixCube::emptyBuffer() {
 	pSides->middleColors = new uint16_t[5];
 }
 
-void RubixCube::turnOtherSidesC(int side) {
+void RubixCube::updateOtherSidesC(int side) {
 	int *pX,*pS;
 	if (side < 1) return;
 	else if (side == 1) {
@@ -69,62 +69,17 @@ void RubixCube::turnOtherSidesC(int side) {
 		int s[5] = {11, 10, 9, 8, 7};
 		pS = s;
 	}
-	turnCornerSidesCw(pS, pX);
+	turnEdgesCw(pS, pX);
 	return;
 }
 
-void RubixCube::turnCornerSidesCw(int* s, int* x){
+void RubixCube::turnEdgesCw(int* s, int* x){
 	moveEdgeCw(s[0], x[0], 0, 0);
 	moveEdgeCw(s[4], x[4], s[0], x[0]);
 	moveEdgeCw(s[3], x[3], s[4], x[4]);
 	moveEdgeCw(s[2], x[2], s[3], x[3]);
 	moveEdgeCw(s[1], x[1], s[2], x[2]);
 	moveEdgeCw(0, 0, s[1], x[1]);
-	emptyBuffer();
-	return;
-}
-
-void RubixCube::turnCornerSidesCwFT(int s0, int s1, int s2, int s3, int s4){
-	moveEdgeCw(s0, 0, 0, 0);
-	moveEdgeCw(s4, 0, s0, 0);
-	moveEdgeCw(s3, 0, s4, 0);
-	moveEdgeCw(s2, 0, s3, 0);
-	moveEdgeCw(s1, 0, s2, 0);
-	moveEdgeCw(0, 0, s1, 0);
-	emptyBuffer();
-	return;
-}
-
-void RubixCube::turnCornerSidesCwFMT(int s, int s0, int s1, int s2, int s3, int s4) {
-	moveEdgeCw(s0, s%5, 0, 0);
-	moveEdgeCw(s4, 1,s0, s%5);
-	moveEdgeCw(s3, 0, s4, 1);
-	moveEdgeCw(s2, 4, s3, 0);
-	moveEdgeCw(s1, 4, s2, 4);
-	moveEdgeCw(0, 0, s1, 4);
-	emptyBuffer();
-	return;
-}
-
-void RubixCube::turnCornerSidesCwFMD(int s, int s0, int s1, int s2, int s3, int s4) {
-	moveEdgeCw(s0, (-s+11), 0, 0);
-	moveEdgeCw(s4, 3,s0, (-s+11));
-	moveEdgeCw(s3, 3, s4, 3);
-	moveEdgeCw(s2, 2, s3, 3);
-	moveEdgeCw(s1, 1, s2, 2);
-	moveEdgeCw(0, 0, s1, 1);
-	emptyBuffer();
-	return;
-
-}
-
-void RubixCube::turnCornerSidesCwFD(int s0, int s1, int s2, int s3, int s4) {
-	moveEdgeCw(s0, 2, 0, 0);
-	moveEdgeCw(s4, 2, s0, 2);
-	moveEdgeCw(s3, 2, s4, 2);
-	moveEdgeCw(s2, 2, s3, 2);
-	moveEdgeCw(s1, 2, s2, 2);
-	moveEdgeCw(0, 0, s1, 2);
 	emptyBuffer();
 	return;
 }
@@ -150,7 +105,7 @@ void RubixCube::turnSideC(int side){
 	tmpMs[4] = rS.middleColors[0];
 	rS.cornerColors = tmpCs;
 	rS.middleColors = tmpMs;
-	turnOtherSidesC(side);
+	updateOtherSidesC(side);
 }
 
 void RubixCube::turnSide(int side){

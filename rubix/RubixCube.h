@@ -22,12 +22,8 @@ public:
 	void init(uint16_t* alNbrs);
 
 	void emptyBuffer();
-	void turnOtherSidesC(int side);
-	void turnCornerSidesCw(int *s, int *x);
-	void turnCornerSidesCwFT(int s0, int s1, int s2, int s3, int s4);
-	void turnCornerSidesCwFMT(int s, int s0, int s1, int s2, int s3, int s4);
-	void turnCornerSidesCwFMD(int s, int s0, int s1, int s2, int s3, int s4);
-	void turnCornerSidesCwFD(int s0, int s1, int s2, int s3, int s4);
+	void updateOtherSidesC(int side);
+	void turnEdgesCw(int *s, int *x);
 	void moveEdgeCw(int data, int x0, int target, int x1);
 	void turnSideC(int side);
 	void turnSide(int side);
